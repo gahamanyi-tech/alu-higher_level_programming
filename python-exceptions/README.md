@@ -7,3 +7,4 @@ This directory covers safe data handling, error prevention, and structural contr
 * **1-safe_print_integer.py**: Function that safely prints an integer using string formatting and handles conversion exceptions cleanly.
 * **2-safe_print_list_integers.py**: Function that prints only the integers from a mixed-type list up to index x, allowing indexing exceptions to bubble up.
 * **3-safe_print_division.py**: Function that divides two integers and handles structural print states within a `finally` block framework.
+* **4-list_division.py**: Function that divides elements between two separate lists sequentially with multi-exception handling fallbacks.
