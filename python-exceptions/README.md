@@ -4,3 +4,4 @@ This directory covers safe data handling, error prevention, and structural contr
 
 ## Files Reference
 * **0-safe_print_list.py**: Function that safely prints a specific number of elements from a list regardless of its structural size boundaries.
+* **1-safe_print_integer.py**: Function that safely prints an integer using string formatting and handles conversion exceptions cleanly.
