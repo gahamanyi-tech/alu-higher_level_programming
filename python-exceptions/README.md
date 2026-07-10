@@ -9,3 +9,4 @@ This directory covers safe data handling, error prevention, and structural contr
 * **3-safe_print_division.py**: Function that divides two integers and handles structural print states within a `finally` block framework.
 * **4-list_division.py**: Function that divides elements between two separate lists sequentially with multi-exception handling fallbacks.
 * **5-raise_exception.py**: Function that explicitly raises a standard `TypeError` exception.
+* **6-raise_exception_msg.py**: Function that explicitly raises a `NameError` containing a custom text message string.
