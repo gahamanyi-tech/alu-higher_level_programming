@@ -1,0 +1,43 @@
+=============================
+How to Use 0-add_integer.py
+=============================
+
+This module provides an `add_integer` function.
+
+Usage
+=====
+
+Import the function:
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Normal addition:
+    >>> add_integer(1, 2)
+    3
+    >>> add_integer(100, -2)
+    98
+
+Default parameter b (98):
+    >>> add_integer(2)
+    100
+
+Floats casting:
+    >>> add_integer(100.3, -2)
+    98
+    >>> add_integer(2.3, 3.7)
+    5
+
+Type Errors:
+    >>> add_integer(4, "School")
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+    >>> add_integer(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+    >>> add_integer("Python", 4)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
