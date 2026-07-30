@@ -1,6 +1,6 @@
 # SQL - More Queries
 
-This project covers advanced SQL concepts including user privileges, subqueries, relational database constraints (PRIMARY KEY, FOREIGN KEY, UNIQUE), and database JOIN operations (INNER JOIN, LEFT JOIN, GROUP BY).
+This project covers SQL privileges, database users, subqueries, relational database constraints (PRIMARY KEY, FOREIGN KEY, UNIQUE), and JOIN operations.
 
 ## Files & Descriptions
 
