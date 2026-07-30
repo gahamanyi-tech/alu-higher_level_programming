@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """
-Fetches https://alu-intranet.hbtn.io/status using urllib package.
+Fetches https://intranet.hbtn.io/status using urllib package.
 Displays response body type, content bytes, and UTF-8 decoded content.
 """
 import urllib.request
 
 
 if __name__ == "__main__":
-    url = "https://alu-intranet.hbtn.io/status"
+    url = "https://intranet.hbtn.io/status"
     req = urllib.request.Request(url)
     with urllib.request.urlopen(req) as response:
         content = response.read()
