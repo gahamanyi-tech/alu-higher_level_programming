@@ -15,10 +15,16 @@ Normal square:
     ##
     ##
 
+    >>> print_square(4)
+    ####
+    ####
+    ####
+    ####
+
 Size 0:
     >>> print_square(0)
 
-Errors:
+Errors for invalid size values:
     >>> print_square(-1)
     Traceback (most recent call last):
         ...
@@ -33,3 +39,14 @@ Errors:
     Traceback (most recent call last):
         ...
     TypeError: size must be an integer
+
+    >>> print_square(2.5)
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+Missing argument test:
+    >>> print_square()
+    Traceback (most recent call last):
+        ...
+    TypeError: print_square() missing 1 required positional argument: 'size'
