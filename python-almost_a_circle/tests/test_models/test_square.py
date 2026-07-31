@@ -11,6 +11,10 @@ class TestSquare(unittest.TestCase):
     def setUp(self):
         Square._Base__nb_objects = 0
 
+    def tearDown(self):
+        if os.path.exists("Square.json"):
+            os.remove("Square.json")
+
     def test_instantiation(self):
         s1 = Square(1)
         self.assertEqual(s1.size, 1)
@@ -86,20 +90,20 @@ class TestSquare(unittest.TestCase):
         s = Square.create(**{'id': 89, 'size': 1, 'x': 2, 'y': 3})
         self.assertEqual(s.y, 3)
 
-    def test_save_to_file(self):
+    def test_save_to_file_none(self):
         Square.save_to_file(None)
         with open("Square.json", "r") as f:
             self.assertEqual(f.read(), "[]")
 
+    def test_save_to_file_empty_list(self):
         Square.save_to_file([])
         with open("Square.json", "r") as f:
             self.assertEqual(f.read(), "[]")
 
-        Square.save_to_file([Square(1, 0, 0, 1)])
+    def test_save_to_file_valid(self):
+        Square.save_to_file([Square(1)])
         with open("Square.json", "r") as f:
             self.assertTrue(len(f.read()) > 0)
-        if os.path.exists("Square.json"):
-            os.remove("Square.json")
 
     def test_load_from_file(self):
         if os.path.exists("Square.json"):
@@ -111,8 +115,6 @@ class TestSquare(unittest.TestCase):
         objs = Square.load_from_file()
         self.assertEqual(len(objs), 1)
         self.assertEqual(objs[0].id, 1)
-        if os.path.exists("Square.json"):
-            os.remove("Square.json")
 
 
 if __name__ == '__main__':

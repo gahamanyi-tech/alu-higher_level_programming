@@ -13,6 +13,10 @@ class TestRectangle(unittest.TestCase):
     def setUp(self):
         Rectangle._Base__nb_objects = 0
 
+    def tearDown(self):
+        if os.path.exists("Rectangle.json"):
+            os.remove("Rectangle.json")
+
     def test_instantiation(self):
         r1 = Rectangle(1, 2)
         self.assertEqual(r1.width, 1)
@@ -129,20 +133,20 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4})
         self.assertEqual(r.y, 4)
 
-    def test_save_to_file(self):
+    def test_save_to_file_none(self):
         Rectangle.save_to_file(None)
         with open("Rectangle.json", "r") as f:
             self.assertEqual(f.read(), "[]")
 
+    def test_save_to_file_empty_list(self):
         Rectangle.save_to_file([])
         with open("Rectangle.json", "r") as f:
             self.assertEqual(f.read(), "[]")
 
-        Rectangle.save_to_file([Rectangle(1, 2, 0, 0, 1)])
+    def test_save_to_file_valid(self):
+        Rectangle.save_to_file([Rectangle(1, 2)])
         with open("Rectangle.json", "r") as f:
             self.assertTrue(len(f.read()) > 0)
-        if os.path.exists("Rectangle.json"):
-            os.remove("Rectangle.json")
 
     def test_load_from_file(self):
         if os.path.exists("Rectangle.json"):
@@ -154,8 +158,6 @@ class TestRectangle(unittest.TestCase):
         objs = Rectangle.load_from_file()
         self.assertEqual(len(objs), 1)
         self.assertEqual(objs[0].id, 1)
-        if os.path.exists("Rectangle.json"):
-            os.remove("Rectangle.json")
 
 
 if __name__ == '__main__':
